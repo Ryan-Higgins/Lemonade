@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Customer
   layers:
   - Default
   - TransparentFX
@@ -40,4 +41,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Grass
+    uniqueID: 3668609597
+    locked: 0
+  - name: Roads
+    uniqueID: 4029353477
+    locked: 0
+  - name: Stand
+    uniqueID: 2884080645
+    locked: 0
+  - name: Icons
+    uniqueID: 2974668151
     locked: 0
