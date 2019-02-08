@@ -29,110 +29,93 @@ public class Path : MonoBehaviour
         return points;
     }
 
-    //// Start is called before the first frame update
-    //void Start()
-    //{
+    /*
+    public void GeneratePathTo(int x, int y, Vector3 agentPos, Vector3 target)
+    {
+        Dictionary<Vector3, float> dist = new Dictionary<Vector3, float>();
+        Dictionary<Vector3, Vector3> prev = new Dictionary<Vector3, Vector3>();
 
-    //}
+        // Setup the "Q" -- the list of nodes we haven't checked yet.
+        List<Vector3> unvisited = new List<Vector3>();
 
-    //// Update is called once per frame
-    //void Update()
-    //{
+        Vector3 source = agentPos;
 
-    //}
 
-    //public void GeneratePathTo(int x, int y)
-    //{
-    //    Dictionary<Node, float> dist = new Dictionary<Node, float>();
-    //    Dictionary<Node, Node> prev = new Dictionary<Node, Node>();
+        dist[source] = 0;
+        prev[source] = Vector3.zero;
 
-    //    // Setup the "Q" -- the list of nodes we haven't checked yet.
-    //    List<Node> unvisited = new List<Node>();
+        // Initialize everything to have INFINITY distance, since
+        // we don't know any better right now. Also, it's possible
+        // that some nodes CAN'T be reached from the source,
+        // which would make INFINITY a reasonable value
+        foreach (Vector3 v in waypoints)
+        {
+            if (v != source)
+            {
+                dist[v] = Mathf.Infinity;
+                prev[v] = Vector3.zero;
+            }
 
-    //    Node source = graph[
-    //                        selectedUnit.GetComponent<Unit>().tileX,
-    //                        selectedUnit.GetComponent<Unit>().tileY
-    //                        ];
+            unvisited.Add(v);
+        }
 
-    //    Node target = graph[
-    //                        x,
-    //                        y
-    //                        ];
+        while (unvisited.Count > 0)
+        {
+            // "u" is going to be the unvisited node with the smallest distance.
+            Vector3 u = Vector3.zero;
 
-    //    dist[source] = 0;
-    //    prev[source] = null;
+            foreach (Vector3 possibleU in unvisited)
+            {
+                if (u == null || dist[possibleU] < dist[u])
+                {
+                    u = possibleU;
+                }
+            }
 
-    //    // Initialize everything to have INFINITY distance, since
-    //    // we don't know any better right now. Also, it's possible
-    //    // that some nodes CAN'T be reached from the source,
-    //    // which would make INFINITY a reasonable value
-    //    foreach (Node v in graph)
-    //    {
-    //        if (v != source)
-    //        {
-    //            dist[v] = Mathf.Infinity;
-    //            prev[v] = null;
-    //        }
+            if (u == target)
+            {
+                break;  // Exit the while loop!
+            }
 
-    //        unvisited.Add(v);
-    //    }
+            unvisited.Remove(u);
 
-    //    while (unvisited.Count > 0)
-    //    {
-    //        // "u" is going to be the unvisited node with the smallest distance.
-    //        Node u = null;
+            foreach (Vector3 v in u.neighbours)
+            {
+                //float alt = dist[u] + u.DistanceTo(v);
+                float alt = dist[u] + CostToEnterTile(u.x, u.y, v.x, v.y);
+                if (alt < dist[v])
+                {
+                    dist[v] = alt;
+                    prev[v] = u;
+                }
+            }
+        }
 
-    //        foreach (Node possibleU in unvisited)
-    //        {
-    //            if (u == null || dist[possibleU] < dist[u])
-    //            {
-    //                u = possibleU;
-    //            }
-    //        }
+        // If we get there, the either we found the shortest route
+        // to our target, or there is no route at ALL to our target.
 
-    //        if (u == target)
-    //        {
-    //            break;  // Exit the while loop!
-    //        }
+        if (prev[target] == null)
+        {
+            // No route between our target and the source
+            return;
+        }
 
-    //        unvisited.Remove(u);
+        List<Node> currentPath = new List<Node>();
 
-    //        foreach (Node v in u.neighbours)
-    //        {
-    //            //float alt = dist[u] + u.DistanceTo(v);
-    //            float alt = dist[u] + CostToEnterTile(u.x, u.y, v.x, v.y);
-    //            if (alt < dist[v])
-    //            {
-    //                dist[v] = alt;
-    //                prev[v] = u;
-    //            }
-    //        }
-    //    }
+        Node curr = target;
 
-    //    // If we get there, the either we found the shortest route
-    //    // to our target, or there is no route at ALL to our target.
+        // Step through the "prev" chain and add it to our path
+        while (curr != null)
+        {
+            currentPath.Add(curr);
+            curr = prev[curr];
+        }
 
-    //    if (prev[target] == null)
-    //    {
-    //        // No route between our target and the source
-    //        return;
-    //    }
+        // Right now, currentPath describes a route from out target to our source
+        // So we need to invert it!
 
-    //    List<Node> currentPath = new List<Node>();
+        currentPath.Reverse();
 
-    //    Node curr = target;
-
-    //    // Step through the "prev" chain and add it to our path
-    //    while (curr != null)
-    //    {
-    //        currentPath.Add(curr);
-    //        curr = prev[curr];
-    //    }
-
-    //    // Right now, currentPath describes a route from out target to our source
-    //    // So we need to invert it!
-
-    //    currentPath.Reverse();
-
-    //}
+    }
+    */
 }
