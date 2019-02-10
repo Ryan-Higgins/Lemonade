@@ -1,121 +1,60 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class Path : MonoBehaviour
 {
-    public List<Vector3> waypoints = new List<Vector3>();
+    public List<Node> nodeList = new List<Node>();
     public Tilemap tMap;
 
     private void Awake()
     {
-        waypoints = FindWaypoints(tMap);
+        nodeList = FindNodes();
+    }
+    public Node GetNodeAtPosition(Vector3 point)
+    {
+        foreach(var n in nodeList)
+        {
+            if (Vector3.Distance(n.position, point) <= 2)
+            {
+                return n;
+            }
+        }
+        return null;
     }
 
-    public static List<Vector3> FindWaypoints(Tilemap tMap)
+    public List<Node> FindNodes()
     {
-        List<Vector3> points = new List<Vector3>();
+        List<Node> nodes = new List<Node>();
+
         foreach (var pos in tMap.cellBounds.allPositionsWithin)
         {
-            if (tMap.HasTile(new Vector3Int(pos.x, pos.y, pos.z)))
+            Vector3Int posInt = new Vector3Int(pos.x, pos.y, pos.z);
+            if (tMap.HasTile(posInt))
             {
-                Vector3 p = tMap.CellToWorld(new Vector3Int(pos.x, pos.y, pos.z));
-
-                points.Add(p + new Vector3(1, 1, 0));
+                Node n = new Node(tMap.GetCellCenterWorld(posInt));
+                nodes.Add(n);               
             }
         }
-        return points;
+        return nodes;
     }
 
-    /*
-    public void GeneratePathTo(int x, int y, Vector3 agentPos, Vector3 target)
+    public List<Node> GetNeighbours(Node nodeToCheck, List<Node> nodes)
     {
-        Dictionary<Vector3, float> dist = new Dictionary<Vector3, float>();
-        Dictionary<Vector3, Vector3> prev = new Dictionary<Vector3, Vector3>();
+        List<Node> neighbours = new List<Node>();
 
-        // Setup the "Q" -- the list of nodes we haven't checked yet.
-        List<Vector3> unvisited = new List<Vector3>();
-
-        Vector3 source = agentPos;
-
-
-        dist[source] = 0;
-        prev[source] = Vector3.zero;
-
-        // Initialize everything to have INFINITY distance, since
-        // we don't know any better right now. Also, it's possible
-        // that some nodes CAN'T be reached from the source,
-        // which would make INFINITY a reasonable value
-        foreach (Vector3 v in waypoints)
+        foreach(Node node in nodes)
         {
-            if (v != source)
+            if (nodeToCheck == node)
             {
-                dist[v] = Mathf.Infinity;
-                prev[v] = Vector3.zero;
+                continue;
             }
-
-            unvisited.Add(v);
-        }
-
-        while (unvisited.Count > 0)
-        {
-            // "u" is going to be the unvisited node with the smallest distance.
-            Vector3 u = Vector3.zero;
-
-            foreach (Vector3 possibleU in unvisited)
+            if (Vector3.Distance(nodeToCheck.position, node.position) == tMap.cellSize.x)
             {
-                if (u == null || dist[possibleU] < dist[u])
-                {
-                    u = possibleU;
-                }
-            }
-
-            if (u == target)
-            {
-                break;  // Exit the while loop!
-            }
-
-            unvisited.Remove(u);
-
-            foreach (Vector3 v in u.neighbours)
-            {
-                //float alt = dist[u] + u.DistanceTo(v);
-                float alt = dist[u] + CostToEnterTile(u.x, u.y, v.x, v.y);
-                if (alt < dist[v])
-                {
-                    dist[v] = alt;
-                    prev[v] = u;
-                }
+                neighbours.Add(node);
             }
         }
 
-        // If we get there, the either we found the shortest route
-        // to our target, or there is no route at ALL to our target.
-
-        if (prev[target] == null)
-        {
-            // No route between our target and the source
-            return;
-        }
-
-        List<Node> currentPath = new List<Node>();
-
-        Node curr = target;
-
-        // Step through the "prev" chain and add it to our path
-        while (curr != null)
-        {
-            currentPath.Add(curr);
-            curr = prev[curr];
-        }
-
-        // Right now, currentPath describes a route from out target to our source
-        // So we need to invert it!
-
-        currentPath.Reverse();
-
+        return neighbours;
     }
-    */
 }

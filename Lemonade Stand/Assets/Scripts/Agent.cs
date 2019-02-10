@@ -1,80 +1,111 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class Agent : MonoBehaviour
 {
-    public Transform startPos;
-    public Transform targetPos;
-    public Transform nextWaypoint;
+    public Transform startingPoint;
+    public Transform targetPoint;
 
-    public Queue<Transform> waypoints = new Queue<Transform>();
+    public List<Node> pathToTarget = new List<Node>();
+    public Path path;
 
-    public List<Transform> visited = new List<Transform>();
+    public bool drawGizmos = true;
 
-    private void Awake()
+    private void OnDrawGizmos()
     {
-        waypoints.Enqueue(startPos);
-        visited.Add(startPos);
-
-        while(waypoints.Count > 1)
+        if (!drawGizmos)
         {
-            var current = waypoints.Peek();
+            return;
+        }
 
-            //foreach (var next in )
+        Gizmos.color = Color.green;
+
+        foreach(Node n in pathToTarget)
+        {
+            Gizmos.DrawSphere(n.position, 0.2f);
         }
     }
 
-}
-
-public struct Node
-{
-    public List<Node> neighbours;
-    public Vector3 pos;
-}
-
-/*
- * public class ForForum : MonoBehaviour
-{
-    // IntVector2 - custom struct (basically a copy of Vector2 with int's)
-    // GetNeighbors - function to get the neighbors of the current cell
-   
-   
-    Dictionary<IntVector2, int> distanceChart = new Dictionary<IntVector2, int>();                        // this will record the distances from start to all positions on map
-    Dictionary<IntVector2, IntVector2> pathChart = new Dictionary<IntVector2, IntVector2>();            // this will record the / a shortest path from start to all positions on map
-   
-    public void BFS(IntVector2 startPos)
+    private void Update()
     {
-        IntVector2 currentPos = startPos;
-        Queue<IntVector2> frontier = new Queue<IntVector2>();
-       
-        distanceChart.Clear();
-        pathChart.Clear();
-       
-        frontier.Enqueue(currentPos);
-        distanceChart.Add(currentPos, 0);
-        pathChart.Add(currentPos, IntVector2.downLeft);                                            // IntVector2.downLeft = marker for start position
-       
-        while (frontier.Count > 0)                                                                // have I not been everywhere
+        if (targetPoint == null)
         {
-            currentPos = frontier.Dequeue();                                                    // get position I am currently at
-            foreach (IntVector2 nextPos in GetNeighbors (currentPos))                            // get a list of all my neighbors
+            Debug.LogWarning("target is null");
+            return;
+        }
+        FindPath(startingPoint.position, targetPoint.position);
+    }
+
+
+    void FindPath(Vector3 startPos, Vector3 targetPos)
+    {
+        Node StartNode = path.GetNodeAtPosition(startPos);
+        Node TargetNode = path.GetNodeAtPosition(targetPos);
+
+        List<Node> OpenList = new List<Node>();
+        HashSet<Node> ClosedList = new HashSet<Node>();
+
+        OpenList.Add(StartNode);
+
+        while (OpenList.Count > 0)
+        {
+            Node CurrentNode = OpenList[0];
+            for (int i = 1; i < OpenList.Count; i++)
             {
-                if (distanceChart.ContainsKey(nextPos) == false)                                // if I have not been on the neighbor cell, process
+                if (OpenList[i].totalCost < CurrentNode.totalCost || OpenList[i].totalCost == CurrentNode.totalCost 
+                    && OpenList[i].costFromTarget < CurrentNode.costFromTarget)
                 {
-                    frontier.Enqueue(nextPos);                                              
-                    distanceChart.Add(nextPos, 1 + distanceChart[currentPos]);
-                    pathChart.Add(nextPos, currentPos);
-                   
-                    // here can go further logic
-                    // i.e. stop once next enemy found
-                    // or create a distance list to all enemy positions
+                    CurrentNode = OpenList[i];
                 }
             }
+            OpenList.Remove(CurrentNode);
+            ClosedList.Add(CurrentNode);
+
+            if (CurrentNode == TargetNode)
+            {
+                GetFinalPath(StartNode, TargetNode);
+            }
+
+            //Check neighbouring nodes
+            foreach (Node NeighborNode in path.GetNeighbours(CurrentNode, path.nodeList))
+            {
+                if (ClosedList.Contains(NeighborNode))
+                {
+                    continue;
+                }
+                int MoveCost = CurrentNode.costFromStart + (int)Vector3.Distance(CurrentNode.position, NeighborNode.position);
+
+                if (MoveCost < NeighborNode.costFromStart || !OpenList.Contains(NeighborNode))
+                {
+                    NeighborNode.costFromStart = MoveCost;
+                    NeighborNode.costFromTarget = (int)Vector3.Distance(CurrentNode.position, NeighborNode.position);
+                    NeighborNode.ParentNode = CurrentNode;
+
+                    if (!OpenList.Contains(NeighborNode))
+                    {
+                        OpenList.Add(NeighborNode);
+                    }
+                }
+            }
+
         }
     }
+
+    void GetFinalPath(Node startNode, Node endNode)
+    {
+        List<Node> path = new List<Node>();
+        Node CurrentNode = endNode;
+
+        while (CurrentNode != startNode)
+        {
+            path.Add(CurrentNode);
+            CurrentNode = CurrentNode.ParentNode;
+        }
+
+        path.Reverse();
+
+        pathToTarget = path;
+
+    }
+
 }
- 
- * 
- * 
- */

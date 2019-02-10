@@ -5,26 +5,29 @@ using UnityEngine.Tilemaps;
 
 public class DrawGizmos : MonoBehaviour
 {
-    public Tilemap tMap;
-    List<Vector3> points = new List<Vector3>();
-    public Vector3 gizmoOffset = new Vector3(1, 1, 0);
+    public Path path;
     public float gizmoSize = 0.2f;
+    public Color gizmoColor = Color.red;
+    public bool drawGizmos = true;
+    public List<Node> nodeList = new List<Node>();
+
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
-
-        if (points.Count < 1)
+        if (!drawGizmos)
         {
-            points = Path.FindWaypoints(tMap);
+            return;
         }
-
-        foreach (var pos in tMap.cellBounds.allPositionsWithin)
+        if (nodeList.Capacity < 1)
         {
-            if (tMap.HasTile(new Vector3Int(pos.x, pos.y, pos.z))){
-                Vector3 p = tMap.CellToWorld(new Vector3Int(pos.x, pos.y, pos.z));
-                
-                Gizmos.DrawSphere(p + gizmoOffset, gizmoSize);
-            }
+            Debug.Log("Node list empty");
+            nodeList = path.FindNodes();
+        }
+        
+        Gizmos.color = gizmoColor;
+
+        foreach(Node n in nodeList)
+        {
+            Gizmos.DrawSphere(n.position, gizmoSize);
         }
     }
 }
