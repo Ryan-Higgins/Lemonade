@@ -1913,7 +1913,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serveIcon: {fileID: 0}
-  isServed: 0
   atStand: 0
 --- !u!4 &1168243591
 Transform:
@@ -1923,7 +1922,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1168243588}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.3, y: -3.16, z: 0}
+  m_LocalPosition: {x: 11.02, y: -3.16, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 817930583}
@@ -3026,3 +3025,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tMap: {fileID: 2100580713}
+  gizmoOffset: {x: 1, y: 1, z: 0}
+  gizmoSize: 0.2

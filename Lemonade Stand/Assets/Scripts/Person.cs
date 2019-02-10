@@ -1,12 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.UIElements;
 
 public class Person : MonoBehaviour
 {
     public GameObject serveIcon;
 
-    public bool isServed = false;
     public  bool atStand = false;
     private bool beenServed = false;
     
@@ -23,17 +24,26 @@ public class Person : MonoBehaviour
         {
             transform.Translate(0,1*Time.deltaTime,0);
         }
+
         
-        if (isServed && atStand)
+        RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+        if (Input.GetMouseButton(0))
         {
-            if (!beenServed)
+            if (hit.collider != null)
             {
-                LemonadeSystem.money += 1;
-                LemonadeSystem.customers += 1;
-                isServed = false;
-                beenServed = true;
+                if (hit.transform.gameObject.CompareTag("Customer"))
+                {
+                    if (!beenServed)
+                    {
+                        serveIcon.gameObject.SetActive(false);
+                        beenServed = true;
+                        LemonadeSystem.money += 1;
+                        LemonadeSystem.customers += 1;
+                    }
+                }
             }
-        } else if (!isServed && atStand)
+        }
+        if (!beenServed && atStand)
         {
             serveIcon.gameObject.SetActive(true);
         }
