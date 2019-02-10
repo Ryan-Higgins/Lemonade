@@ -37,7 +37,14 @@ public class Person : MonoBehaviour
                     {
                         serveIcon.gameObject.SetActive(false);
                         beenServed = true;
-                        LemonadeSystem.money += 1;
+                        if (LemonadeSystem.atRightEvent)
+                        {
+                            LemonadeSystem.money += (1 * LemonadeSystem.weatherMultiplier) * LemonadeSystem.eventMultiplier;
+                        } else if (!LemonadeSystem.atRightEvent)
+                        {
+                            LemonadeSystem.money += 1 * LemonadeSystem.weatherMultiplier;
+                        }
+
                         LemonadeSystem.customers += 1;
                     }
                 }

@@ -20,7 +20,6 @@ public class Serving : MonoBehaviour
     {
         if (customer.CompareTag("Customer"))
         {
-            print("entered");
             customer.gameObject.GetComponent<Person>().atStand = true;
         }
     }

@@ -17,6 +17,8 @@
           <e p="Path.cs" t="Include" />
           <e p="Person.cs" t="Include" />
           <e p="Serving.cs" t="Include" />
+          <e p="StandPlace.cs" t="Include" />
+          <e p="Weather.cs" t="Include" />
         </e>
       </e>
       <e p="Lemonade Stand.sln" t="IncludeFlat" />
