@@ -1083,7 +1083,7 @@ GameObject:
   - component: {fileID: 1363629986}
   - component: {fileID: 1363629985}
   m_Layer: 5
-  m_Name: Image
+  m_Name: MinuteHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1396,7 +1396,7 @@ GameObject:
   - component: {fileID: 1633803775}
   - component: {fileID: 1633803774}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: HourHand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
