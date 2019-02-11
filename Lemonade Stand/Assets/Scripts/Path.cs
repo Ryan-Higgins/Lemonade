@@ -5,12 +5,27 @@ using UnityEngine.Tilemaps;
 public class Path : MonoBehaviour
 {
     public List<Node> nodeList = new List<Node>();
-    public Tilemap tMap;
+    private Tilemap tMap;
 
     private void Awake()
     {
         nodeList = FindNodes();
+        ConfigureTilemap();
     }
+
+    private void ConfigureTilemap()
+    {
+        if (tMap == null)
+        {
+            if (!GetComponent<Tilemap>())
+            {
+                Debug.LogError("Tilemap component not found on gameObject");
+                return;
+            }
+            tMap = GetComponent<Tilemap>();
+        }
+    }
+
     public Node GetNodeAtPosition(Vector3 point)
     {
         foreach(var n in nodeList)
@@ -25,6 +40,7 @@ public class Path : MonoBehaviour
 
     public List<Node> FindNodes()
     {
+        ConfigureTilemap();
         List<Node> nodes = new List<Node>();
 
         foreach (var pos in tMap.cellBounds.allPositionsWithin)
@@ -41,11 +57,21 @@ public class Path : MonoBehaviour
 
     public List<Node> GetNeighbours(Node nodeToCheck, List<Node> nodes)
     {
+        
         List<Node> neighbours = new List<Node>();
 
-        foreach(Node node in nodes)
+        if (nodeToCheck == null)
+        {
+            return neighbours;
+        }
+
+        foreach (Node node in nodes)
         {
             if (nodeToCheck == node)
+            {
+                continue;
+            }
+            if (node == null)
             {
                 continue;
             }
