@@ -5,7 +5,7 @@ using UnityEngine.Tilemaps;
 
 public class DrawGizmos : MonoBehaviour
 {
-    public Path path;
+    private Path path;
     public float gizmoSize = 0.2f;
     public Color gizmoColor = Color.red;
     public bool drawGizmos = true;
@@ -13,6 +13,15 @@ public class DrawGizmos : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        if (path == null)
+        {
+            if (!GetComponent<Path>())
+            {
+                Debug.LogError("Path component not found on gameObject");
+                return;
+            }
+            path = GetComponent<Path>();
+        }
         if (!drawGizmos)
         {
             return;
