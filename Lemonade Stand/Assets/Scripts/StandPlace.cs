@@ -32,6 +32,7 @@ public class StandPlace : MonoBehaviour
                     Vector3Int cellPosition = myTile.WorldToCell(hit.point);
                     Vector3 spawnPos = myTile.GetCellCenterWorld(cellPosition);
                     GameObject standCopy = Instantiate(stand, spawnPos, gameObject.transform.rotation);
+                    standCopy.transform.position = new Vector3(standCopy.transform.position.x, standCopy.transform.position.y, -2);
                     startOfDay = false;                                                                                         
                 }
             }

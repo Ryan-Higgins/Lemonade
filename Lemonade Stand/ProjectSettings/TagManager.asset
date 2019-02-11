@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Customer
+  - Stand
   layers:
   - Default
   - TransparentFX

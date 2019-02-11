@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class LemonadeSystem : MonoBehaviour
 {
-    public static int customers;
-    public static float money;
+    public static int customers = 0;
+    public static float money = 10;
     public static bool atRightEvent = false;
     public static float eventMultiplier = 2f;
     public static float weatherMultiplier = 0;
@@ -21,7 +21,7 @@ public class LemonadeSystem : MonoBehaviour
     void Update()
     {
         
-        /*print(money);
-        print(customers);*/
+        //print(money);
+        //print(customers);
     }
 }
