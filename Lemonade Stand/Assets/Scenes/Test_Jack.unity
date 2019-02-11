@@ -283,7 +283,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24f32b75d0aaa474499b88f92abe3e63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weatherImage: []
+  weatherImage:
+  - {fileID: 1553684705}
+  - {fileID: 1538154608}
+  - {fileID: 737978208}
+  - {fileID: 1989915407}
+  - {fileID: 920597288}
 --- !u!1 &133449072
 GameObject:
   m_ObjectHideFlags: 0
@@ -751,6 +756,7 @@ GameObject:
   - component: {fileID: 740471154}
   - component: {fileID: 740471156}
   - component: {fileID: 740471155}
+  - component: {fileID: 740471157}
   m_Layer: 5
   m_Name: News
   m_TagString: Untagged
@@ -815,6 +821,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 740471153}
   m_CullTransparentMesh: 0
+--- !u!114 &740471157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740471153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7198cc317a3d7b047960a0d2925df2b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newsImage: []
 --- !u!1 &899038661
 GameObject:
   m_ObjectHideFlags: 0
