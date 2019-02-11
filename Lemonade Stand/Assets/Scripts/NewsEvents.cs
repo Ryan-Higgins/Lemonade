@@ -4,27 +4,38 @@ using UnityEngine;
 
 public class NewsEvents : MonoBehaviour
 {
-    public GameObject[] newsImage;
+    public List<GameObject> newsImage;
     Events currentEvent;
-    // Start is called before the first frame update
+    public GameObject e1;
+    public GameObject e2;
+    public GameObject e3;
+
     void Start()
     {
         currentEvent = (Events)Random.Range(0, 2);
+        newsImage.Add(e1);
+        newsImage.Add(e2);
+        newsImage.Add(e3);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (currentEvent == Events.Event0)
         {
             newsImage[0].SetActive(true);
+            newsImage[1].SetActive(false);
+            newsImage[2].SetActive(false);
         }
         else if (currentEvent == Events.Event1)
         {
+            newsImage[0].SetActive(false);
             newsImage[1].SetActive(true);
+            newsImage[2].SetActive(false);
         }
         else if (currentEvent == Events.Event2)
         {
+            newsImage[0].SetActive(false);
+            newsImage[1].SetActive(false);
             newsImage[2].SetActive(true);
         }
     }
