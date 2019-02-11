@@ -9,7 +9,8 @@ public class Person : MonoBehaviour
     public GameObject serveIcon;
 
     public  bool atStand = false;
-    private bool beenServed = false;
+    public bool beenServed = false;
+    public int thisMod;
     
     // Start is called before the first frame update
     void Start()
@@ -37,8 +38,10 @@ public class Person : MonoBehaviour
                     {
                         serveIcon.gameObject.SetActive(false);
                         beenServed = true;
-                        LemonadeSystem.money += (1 * LemonadeSystem.weatherMultiplier) * StandUpgrader.upgradeMultiplier;
+
+                        LemonadeSystem.money += (1 * LemonadeSystem.weatherMultiplier) * thisMod;
                         LemonadeSystem.customers += 1;
+                        print(LemonadeSystem.money);
                     }
                 }
             }

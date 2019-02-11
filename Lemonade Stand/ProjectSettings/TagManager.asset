@@ -46,6 +46,9 @@ TagManager:
   - name: Grass
     uniqueID: 3668609597
     locked: 0
+  - name: City
+    uniqueID: 4122603343
+    locked: 0
   - name: Roads
     uniqueID: 4029353477
     locked: 0

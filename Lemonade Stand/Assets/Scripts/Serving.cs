@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Serving : MonoBehaviour
 {
+    StandUpgrader thisStand;
     // Start is called before the first frame update
     void Start()
     {
-        
+        thisStand = GetComponent<StandUpgrader>();
     }
 
     // Update is called once per frame
@@ -21,6 +22,7 @@ public class Serving : MonoBehaviour
         if (customer.CompareTag("Customer"))
         {
             customer.gameObject.GetComponent<Person>().atStand = true;
+            customer.gameObject.GetComponent<Person>().thisMod = thisStand.upgradeMultiplier;
         }
     }
 }

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class StandUpgrader : MonoBehaviour
 {
-    public static int upgradeMultiplier = 1;
+    public int upgradeMultiplier = 1;
+    int cost;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +15,7 @@ public class StandUpgrader : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        cost = 10 * upgradeMultiplier;
         //print(upgradeMultiplier);
         RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
         if (Input.GetMouseButton(0))
@@ -22,10 +24,10 @@ public class StandUpgrader : MonoBehaviour
             {
                 if (hit.transform.gameObject.CompareTag("Stand"))
                 {
-                    if (LemonadeSystem.money >= 10 * upgradeMultiplier)
+                    if (LemonadeSystem.money >= cost)
                     {
                         upgradeMultiplier += 1;
-                        LemonadeSystem.money -= 10 * upgradeMultiplier;
+                        LemonadeSystem.money -= cost;
                     }
                 }
             }
