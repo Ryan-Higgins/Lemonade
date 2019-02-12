@@ -25,13 +25,13 @@ using UnityEngine;
 
 public class Agent : MonoBehaviour
 {
-    public Transform startingPoint;
-    public Transform targetPoint;
+    [HideInInspector] public Vector3 startingPoint;
+    [HideInInspector] public Vector3 targetPoint;
 
     public List<Node> waypoints = new List<Node>();
     private int index = 0;
     
-    public Path path;
+    [HideInInspector] public Path path;
 
     public bool drawGizmos = true;
 
@@ -43,7 +43,7 @@ public class Agent : MonoBehaviour
     public float nextWaypointDist = 0.125f;
 
     public bool CanMove = true;
-    private bool pathFound = false;
+    [HideInInspector] public bool pathFound = false;
     private Vector3 velocity;
     
 
@@ -64,7 +64,7 @@ public class Agent : MonoBehaviour
 
     private void Start()
     {
-        FindPath(startingPoint.position, targetPoint.position);
+        path.FindPath(startingPoint, targetPoint, this.GetComponent<Agent>());
     }
 
     private void Update()
@@ -72,11 +72,12 @@ public class Agent : MonoBehaviour
         if (targetPoint == null)
         {
             Debug.LogWarning("target is null");
+            
             return;
         }
         if (!pathFound)
         {
-            FindPath(startingPoint.position, targetPoint.position);
+            path.FindPath(startingPoint, targetPoint, this.GetComponent<Agent>());
         }
 
         if (pathFound && CanMove)
@@ -107,8 +108,8 @@ public class Agent : MonoBehaviour
     /// </summary>
     private void StopAgent()
     {
-        //throw new NotImplementedException();
-        Debug.Log("Stop agent");
+        transform.parent.GetComponent<AgentSpawner>().SpawnAgent();
+        Destroy(this.gameObject);
     }
 
     /// <summary>
@@ -145,80 +146,4 @@ public class Agent : MonoBehaviour
                 index++;
         }
     }
-
-
-
-
-    void FindPath(Vector3 startPos, Vector3 targetPos)
-    {
-        Node StartNode = path.GetNodeAtPosition(startPos);
-        Node TargetNode = path.GetNodeAtPosition(targetPos);
-
-        List<Node> OpenList = new List<Node>();
-        HashSet<Node> ClosedList = new HashSet<Node>();
-
-        OpenList.Add(StartNode);
-
-        while (OpenList.Count > 0)
-        {
-            Node CurrentNode = OpenList[0];
-            for (int i = 1; i < OpenList.Count; i++)
-            {
-                if (OpenList[i].totalCost < CurrentNode.totalCost || OpenList[i].totalCost == CurrentNode.totalCost 
-                    && OpenList[i].costFromTarget < CurrentNode.costFromTarget)
-                {
-                    CurrentNode = OpenList[i];
-                }
-            }
-            OpenList.Remove(CurrentNode);
-            ClosedList.Add(CurrentNode);
-
-            if (CurrentNode == TargetNode)
-            {
-                GetFinalPath(StartNode, TargetNode);
-            }
-
-            //Check neighbouring nodes
-            foreach (Node NeighborNode in path.GetNeighbours(CurrentNode, path.nodeList))
-            {
-                if (ClosedList.Contains(NeighborNode))
-                {
-                    continue;
-                }
-                int MoveCost = CurrentNode.costFromStart + (int)Vector3.Distance(CurrentNode.position, NeighborNode.position);
-
-                if (MoveCost < NeighborNode.costFromStart || !OpenList.Contains(NeighborNode))
-                {
-                    NeighborNode.costFromStart = MoveCost;
-                    NeighborNode.costFromTarget = (int)Vector3.Distance(CurrentNode.position, NeighborNode.position);
-                    NeighborNode.ParentNode = CurrentNode;
-
-                    if (!OpenList.Contains(NeighborNode))
-                    {
-                        OpenList.Add(NeighborNode);
-                    }
-                }
-            }
-
-        }
-    }
-
-    void GetFinalPath(Node startNode, Node endNode)
-    {
-        List<Node> path = new List<Node>();
-        Node CurrentNode = endNode;
-
-        while (CurrentNode != startNode)
-        {
-            path.Add(CurrentNode);
-            CurrentNode = CurrentNode.ParentNode;
-        }
-
-        path.Reverse();
-
-        waypoints = path;
-        pathFound = true;
-
-    }
-
 }
