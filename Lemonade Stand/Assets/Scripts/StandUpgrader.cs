@@ -18,7 +18,7 @@ public class StandUpgrader : MonoBehaviour
         cost = 10 * upgradeMultiplier;
         //print(upgradeMultiplier);
         RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonUp(0))
         {
             if (hit.collider != null)
             {
