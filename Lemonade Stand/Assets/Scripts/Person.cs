@@ -33,10 +33,11 @@ public class Person : MonoBehaviour
                     if (!beenServed)
                     {
                         serveIcon.gameObject.SetActive(false);
-                        hit.transform.gameObject.GetComponent<Person>().beenServed = true;
+                        
 
                         LemonadeSystem.money += (1 * LemonadeSystem.weatherMultiplier) * thisMod;
                         LemonadeSystem.customers += 1;
+                        hit.transform.gameObject.GetComponent<Person>().beenServed = true;
                         print(LemonadeSystem.money);
                     }
                 }
