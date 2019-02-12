@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class AgentSpawner : MonoBehaviour
@@ -8,7 +9,9 @@ public class AgentSpawner : MonoBehaviour
     [SerializeField]private Destination[] destinations;
     public bool drawGizmos = false;
     public float numToSpawn = 5;
+    private float agentCount = 0;
     [SerializeField] private MoveSpeed moveSpeed;
+    public float spawnInterval = 0.5f;
     private Path path;
     [Serializable]
     private struct Destination
@@ -25,12 +28,30 @@ public class AgentSpawner : MonoBehaviour
     private void Start()
     {
         path = GameObject.FindObjectOfType<Path>();
-        for(int i = 0; i < numToSpawn; i++)
-        {
-            SpawnAgent();
-        }
+        //for(int i = 0; i < numToSpawn; i++)
+        //{
+        //    SpawnAgent();
+        //}
+        StartCoroutine(SpawnAgentRoutine());
+    }
+    private void Update()
+    {
+        StartCoroutine(SpawnAgentRoutine());
     }
 
+    private IEnumerator SpawnAgentRoutine()
+    {
+        if (agentCount < (numToSpawn + 1))
+            {
+                SpawnAgent();
+                agentCount++;
+                yield return new WaitForSeconds(spawnInterval);
+            }
+    }
+    public void AgentRemoved()
+    {
+        agentCount--;
+    }
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;

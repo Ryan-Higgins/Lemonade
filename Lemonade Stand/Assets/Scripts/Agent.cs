@@ -108,7 +108,7 @@ public class Agent : MonoBehaviour
     /// </summary>
     private void StopAgent()
     {
-        transform.parent.GetComponent<AgentSpawner>().SpawnAgent();
+        transform.parent.GetComponent<AgentSpawner>().AgentRemoved();
         Destroy(this.gameObject);
     }
 
