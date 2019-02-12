@@ -78,6 +78,7 @@ public class AgentSpawner : MonoBehaviour
         a.path = path;
         a.CanMove = true;
         a.moveSpeed = UnityEngine.Random.Range(moveSpeed.minSpeed, moveSpeed.maxSpeed);
+        agent.transform.position = new Vector3(agent.transform.position.x,agent.transform.position.y,-3);
 
     }
     public int GetRandomWeightedIndex()

@@ -8,27 +8,23 @@ public class Person : MonoBehaviour
 {
     public GameObject serveIcon;
 
-    public  bool atStand = false;
-    public bool beenServed = false;
+
+    public bool atStand;
+    public bool beenServed;
     public int thisMod;
     
     // Start is called before the first frame update
     void Start()
     {
-        serveIcon = gameObject.transform.Find("Serve Me Icon").gameObject;
+        beenServed = false;
+        atStand = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.W))
-        {
-            transform.Translate(0,1*Time.deltaTime,0);
-        }
-
-        
         RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButtonUp(0))
         {
             if (hit.collider != null)
             {
@@ -37,7 +33,7 @@ public class Person : MonoBehaviour
                     if (!beenServed)
                     {
                         serveIcon.gameObject.SetActive(false);
-                        beenServed = true;
+                        hit.transform.gameObject.GetComponent<Person>().beenServed = true;
 
                         LemonadeSystem.money += (1 * LemonadeSystem.weatherMultiplier) * thisMod;
                         LemonadeSystem.customers += 1;
@@ -49,6 +45,9 @@ public class Person : MonoBehaviour
         if (!beenServed && atStand)
         {
             serveIcon.gameObject.SetActive(true);
+        } else if (beenServed && atStand)
+        {
+            serveIcon.gameObject.SetActive(false);
         }
     }
 }
