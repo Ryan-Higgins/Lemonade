@@ -324,10 +324,14 @@ SpriteRenderer:
   m_Sprite: {fileID: 21300000, guid: 77849d8bea52c0146b3e987de8b39574, type: 3}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 =======
   m_Color: {r: 0.9339623, g: 0.8859323, b: 0.09251513, a: 1}
 >>>>>>> b6466027b9fb264f761fdd8d1b47118bb1886b17
+=======
+  m_Color: {r: 0.9339623, g: 0.8859323, b: 0.09251513, a: 1}
+>>>>>>> a19d5cf43431cfd279d9d389fabed9614e9a911b
 =======
   m_Color: {r: 0.9339623, g: 0.8859323, b: 0.09251513, a: 1}
 >>>>>>> a19d5cf43431cfd279d9d389fabed9614e9a911b

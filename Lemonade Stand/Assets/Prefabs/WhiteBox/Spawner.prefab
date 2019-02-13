@@ -1,7 +1,10 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> a19d5cf43431cfd279d9d389fabed9614e9a911b
 --- !u!1 &55998034
 GameObject:
   m_ObjectHideFlags: 0
@@ -81,6 +84,9 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+<<<<<<< HEAD
+>>>>>>> a19d5cf43431cfd279d9d389fabed9614e9a911b
+=======
 >>>>>>> a19d5cf43431cfd279d9d389fabed9614e9a911b
 --- !u!1 &400485482
 GameObject:
@@ -173,7 +179,11 @@ GameObject:
   - component: {fileID: 781477856}
   m_Layer: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Name: Forest
+=======
+  m_Name: Cafe
+>>>>>>> a19d5cf43431cfd279d9d389fabed9614e9a911b
 =======
   m_Name: Cafe
 >>>>>>> a19d5cf43431cfd279d9d389fabed9614e9a911b
@@ -281,6 +291,10 @@ Transform:
   - {fileID: 400485483}
   - {fileID: 781477855}
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+  - {fileID: 55998035}
+>>>>>>> a19d5cf43431cfd279d9d389fabed9614e9a911b
 =======
   - {fileID: 55998035}
 >>>>>>> a19d5cf43431cfd279d9d389fabed9614e9a911b
@@ -313,11 +327,14 @@ MonoBehaviour:
   - trans: {fileID: 4924148697044944435}
     weight: 5
 <<<<<<< HEAD
+<<<<<<< HEAD
   - trans: {fileID: 400485483}
     weight: 5
   - trans: {fileID: 781477855}
     weight: 5
 =======
+=======
+>>>>>>> a19d5cf43431cfd279d9d389fabed9614e9a911b
     weatherType: 2
     eventType: 1
   - trans: {fileID: 400485483}
@@ -332,6 +349,9 @@ MonoBehaviour:
     weight: 5
     weatherType: 1
     eventType: 2
+<<<<<<< HEAD
+>>>>>>> a19d5cf43431cfd279d9d389fabed9614e9a911b
+=======
 >>>>>>> a19d5cf43431cfd279d9d389fabed9614e9a911b
   drawGizmos: 1
   numToSpawn: 50
