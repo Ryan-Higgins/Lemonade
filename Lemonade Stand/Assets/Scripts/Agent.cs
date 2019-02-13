@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -30,8 +28,8 @@ public class Agent : MonoBehaviour
 
     public List<Node> waypoints = new List<Node>();
     private int index = 0;
-    
-     public Path path;
+
+    public Path path;
 
     public bool drawGizmos = true;
 
@@ -45,7 +43,8 @@ public class Agent : MonoBehaviour
     public bool CanMove = true;
     [HideInInspector] public bool pathFound = false;
     private Vector3 velocity;
-    
+    public float lerpTime = 3.0f;
+    public float damping = 1.0f;
 
     private void OnDrawGizmos()
     {
@@ -56,7 +55,7 @@ public class Agent : MonoBehaviour
 
         Gizmos.color = Color.green;
 
-        foreach(Node n in waypoints)
+        foreach (Node n in waypoints)
         {
             Gizmos.DrawSphere(n.position, 0.2f);
         }
@@ -64,7 +63,7 @@ public class Agent : MonoBehaviour
 
     private void Start()
     {
-        path.FindPath(startingPoint, targetPoint, this.GetComponent<Agent>());
+        path.FindPath(startingPoint, targetPoint, GetComponent<Agent>());
     }
 
     private void Update()
@@ -72,16 +71,16 @@ public class Agent : MonoBehaviour
         if (targetPoint == null)
         {
             Debug.LogWarning("target is null");
-            
+
             return;
         }
         if (!pathFound)
         {
-            path.FindPath(startingPoint, targetPoint, this.GetComponent<Agent>());
+            path.FindPath(startingPoint, targetPoint, GetComponent<Agent>());
         }
 
         if (pathFound && CanMove)
-        {           
+        {
 
             MoveAgent(waypoints);
         }
@@ -89,7 +88,7 @@ public class Agent : MonoBehaviour
         {
             StopAgent();
         }
-        
+
     }
 
     public Vector3 Arrive(Vector3 target)
@@ -109,7 +108,7 @@ public class Agent : MonoBehaviour
     private void StopAgent()
     {
         transform.parent.GetComponent<AgentSpawner>().AgentRemoved();
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
 
     /// <summary>
@@ -136,14 +135,14 @@ public class Agent : MonoBehaviour
 
         if (velocity.magnitude > float.Epsilon)
         {
-            Vector3 tempUp = Vector3.Lerp(transform.up, Vector3.up + (acceleration * banking), Time.deltaTime * 3.0f);
+            Vector3 tempUp = Vector3.Lerp(transform.up, Vector3.up + (acceleration * banking), Time.deltaTime * lerpTime);
             transform.position += velocity * Time.deltaTime;
             velocity *= (1.0f - Time.deltaTime);
         }
 
         if (Vector3.Distance(transform.position, waypoints[index].position) < 0.25f)
         {
-                index++;
+            index++;
         }
     }
 }
