@@ -89,7 +89,7 @@ SpriteRenderer:
   m_SortingLayerID: -1410886651
   m_SortingLayer: 4
   m_SortingOrder: 200
-  m_Sprite: {fileID: 21300000, guid: c4a4dfa78a1fa8d428ae04b1f96bc0a0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 63d0a3d90c516f043a5503cb6dd97751, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -170,6 +170,8 @@ MonoBehaviour:
   nextWaypointDist: 0.125
   CanMove: 1
   pathFound: 0
+  lerpTime: 3
+  damping: 1
 --- !u!1 &4146572674648093839
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,7 +242,7 @@ SpriteRenderer:
   m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 77849d8bea52c0146b3e987de8b39574, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.9339623, g: 0.8859323, b: 0.09251513, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
