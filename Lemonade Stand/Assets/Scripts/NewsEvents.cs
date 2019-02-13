@@ -5,14 +5,14 @@ using UnityEngine;
 public class NewsEvents : MonoBehaviour
 {
     public List<GameObject> newsImage;
-    Events currentEvent;
+    Event currentEvent;
     public GameObject e1;
     public GameObject e2;
     public GameObject e3;
 
     void Start()
     {
-        currentEvent = (Events)Random.Range(0, 2);
+        currentEvent = (Event)Random.Range(0, 2);
         newsImage.Add(e1);
         newsImage.Add(e2);
         newsImage.Add(e3);
@@ -20,19 +20,19 @@ public class NewsEvents : MonoBehaviour
 
     void Update()
     {
-        if (currentEvent == Events.Event0)
+        if (currentEvent == Event.Event0)
         {
             newsImage[0].SetActive(true);
             newsImage[1].SetActive(false);
             newsImage[2].SetActive(false);
         }
-        else if (currentEvent == Events.Event1)
+        else if (currentEvent == Event.Event1)
         {
             newsImage[0].SetActive(false);
             newsImage[1].SetActive(true);
             newsImage[2].SetActive(false);
         }
-        else if (currentEvent == Events.Event2)
+        else if (currentEvent == Event.Event2)
         {
             newsImage[0].SetActive(false);
             newsImage[1].SetActive(false);
@@ -40,4 +40,4 @@ public class NewsEvents : MonoBehaviour
         }
     }
 }
-enum Events { Event0, Event1, Event2};
+enum Event { Event0, Event1, Event2};
