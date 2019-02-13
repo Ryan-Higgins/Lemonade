@@ -50,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   serveIcon: {fileID: 4146572674648093839}
   atStand: 0
+  beenServed: 0
   thisMod: 0
 --- !u!212 &4146572674432036433
 SpriteRenderer:

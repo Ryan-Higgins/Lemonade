@@ -31,7 +31,7 @@ public class Agent : MonoBehaviour
     public List<Node> waypoints = new List<Node>();
     private int index = 0;
     
-    [HideInInspector] public Path path;
+     public Path path;
 
     public bool drawGizmos = true;
 
