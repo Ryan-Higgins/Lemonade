@@ -6,12 +6,14 @@ using UnityEngine.UI;
 public class LemonadeSystem : MonoBehaviour
 {
     public static int customers = 0;
-    public static float money = 10;
+    public static float money = 0;
     public static bool atRightEvent = false;
     public static float eventMultiplier = 2f;
     public static float weatherMultiplier = 0;
     public Text moneyUI;
-    
+    public static bool priceUpgrade;
+    public static bool autoUpgrade;
+    public static bool buyStand;
 
     // Start is called before the first frame update
     void Start()
@@ -25,5 +27,23 @@ public class LemonadeSystem : MonoBehaviour
         moneyUI.text = money.ToString();
         //print(money);
         //print(customers);
+    }
+
+    public void PriceUpgrade()
+    {
+        priceUpgrade = true;
+        print(priceUpgrade);
+    }
+
+    public void AutoUpgrade()
+    {
+        autoUpgrade = true;
+        print(autoUpgrade);
+        
+    }
+
+    public void BuyStand()
+    {
+        buyStand = true;
     }
 }

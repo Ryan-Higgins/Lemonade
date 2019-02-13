@@ -18,7 +18,7 @@ public class StandPlace : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (startOfDay)
+        if (startOfDay || LemonadeSystem.buyStand  && LemonadeSystem.money >= 100)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             Vector3 worldPoint = ray.GetPoint(-ray.origin.z / ray.direction.z);
@@ -33,7 +33,16 @@ public class StandPlace : MonoBehaviour
                     Vector3 spawnPos = myTile.GetCellCenterWorld(cellPosition);
                     GameObject standCopy = Instantiate(stand, spawnPos, gameObject.transform.rotation);
                     standCopy.transform.position = new Vector3(standCopy.transform.position.x, standCopy.transform.position.y, -2);
-                    startOfDay = false;                                                                                         
+                    if (startOfDay)
+                    {
+                        startOfDay = false;
+                    }
+
+                    if (LemonadeSystem.buyStand)
+                    {
+                        LemonadeSystem.money -= 100;
+                        LemonadeSystem.buyStand = false;
+                    }
                 }
             }
         }

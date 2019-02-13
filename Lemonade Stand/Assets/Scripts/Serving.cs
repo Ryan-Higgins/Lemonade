@@ -42,6 +42,14 @@ public class Serving : MonoBehaviour
         {
             customer.gameObject.GetComponent<Person>().atStand = true;
             customer.gameObject.GetComponent<Person>().thisMod = thisStand.upgradeMultiplier;
+
+            if (thisStand.automatic)
+            {
+                customer.transform.gameObject.GetComponent<Person>().serveIcon.gameObject.SetActive(false);
+                LemonadeSystem.money += (1 * LemonadeSystem.weatherMultiplier) * customer.transform.gameObject.GetComponent<Person>().thisMod;
+                LemonadeSystem.customers += 1;
+                customer.transform.gameObject.GetComponent<Person>().beenServed = true;
+            }
         }
     }
 }
