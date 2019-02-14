@@ -19,7 +19,7 @@ public class StandUpgrader : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(automatic);
+        //print(automatic);
         shownMoney.text = "$" + ((1 * LemonadeSystem.weatherMultiplier) * upgradeMultiplier).ToString();
         cost = 10 * upgradeMultiplier;
         //print(upgradeMultiplier);

@@ -7,17 +7,21 @@ using UnityEngine.Experimental.UIElements;
 public class Person : MonoBehaviour
 {
     public GameObject serveIcon;
-
+    public Color enemyColor;
+    public Color unServedColor;
+    private Color ogColor;
 
     public bool atStand;
     public bool beenServed;
     public int thisMod;
+    public bool AlwaysShowIcon = false;
     
     // Start is called before the first frame update
     void Start()
     {
         beenServed = false;
         atStand = false;
+        ogColor = GetComponent<SpriteRenderer>().color;
     }
 
     // Update is called once per frame
@@ -43,12 +47,38 @@ public class Person : MonoBehaviour
         //        }
         //    }
         //}
-        if (!beenServed && atStand)
+        //if (!beenServed && atStand)
+        //{
+        //    serveIcon.gameObject.SetActive(true);
+        //}
+        //else if (beenServed && atStand)
+        //{
+        //    serveIcon.gameObject.SetActive(false);
+        //}
+    }
+    public void NotServed()
+    {
+        serveIcon.gameObject.GetComponent<SpriteRenderer>().color = unServedColor;
+        serveIcon.gameObject.SetActive(true);
+    }
+    public void Served(bool byPlayer = false)
+    {
+        serveIcon.gameObject.GetComponent<SpriteRenderer>().color = enemyColor;
+        if (!byPlayer)
         {
-            serveIcon.gameObject.SetActive(true);
-        } else if (beenServed && atStand)
-        {
-            serveIcon.gameObject.SetActive(false);
+            serveIcon.gameObject.GetComponent<SpriteRenderer>().color = enemyColor;
         }
+        else
+        {
+            serveIcon.gameObject.GetComponent<SpriteRenderer>().color = ogColor;
+        }
+        
+        serveIcon.gameObject.SetActive(true);
+        beenServed = true;
+    }
+    public void HideIcon()
+    {
+        if (!AlwaysShowIcon || !beenServed)
+        serveIcon.gameObject.SetActive(false);
     }
 }

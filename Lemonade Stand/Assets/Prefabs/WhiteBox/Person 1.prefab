@@ -49,9 +49,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serveIcon: {fileID: 4146572674648093839}
+  enemyColor: {r: 1, g: 0, b: 0, a: 1}
+  unServedColor: {r: 0, g: 1, b: 0.03938818, a: 1}
   atStand: 0
   beenServed: 0
   thisMod: 0
+  AlwaysShowIcon: 1
 --- !u!212 &4146572674432036433
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -113,7 +116,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.11}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -124,7 +127,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.048, y: 2.048}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!50 &4146572674432036432
 Rigidbody2D:

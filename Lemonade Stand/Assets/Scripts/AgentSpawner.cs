@@ -83,7 +83,7 @@ public class AgentSpawner : MonoBehaviour
 
     public void SpawnAgent()
     {
-        Transform spawnPoint = spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Length - 1)];
+        Transform spawnPoint = spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Length)];
         GameObject agent = Instantiate(prefab, spawnPoint);
         agent.transform.parent = transform;
         agent.transform.localScale = Vector3.one;

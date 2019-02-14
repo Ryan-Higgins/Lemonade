@@ -8,6 +8,7 @@ public class StandPlace : MonoBehaviour
     public static bool startOfDay = true;
     public GameObject stand;
     public Grid myTile;
+    public float standCost = 100;
     
     // Start is called before the first frame update
     void Start()
@@ -18,7 +19,11 @@ public class StandPlace : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (startOfDay || LemonadeSystem.buyStand  && LemonadeSystem.money >= 100)
+        if (Events.DisplayingEvent)
+        {
+            return;
+        }
+        if (startOfDay || LemonadeSystem.buyStand  && LemonadeSystem.money >= standCost)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             Vector3 worldPoint = ray.GetPoint(-ray.origin.z / ray.direction.z);
@@ -40,11 +45,15 @@ public class StandPlace : MonoBehaviour
 
                     if (LemonadeSystem.buyStand)
                     {
-                        LemonadeSystem.money -= 100;
+                        LemonadeSystem.money -= standCost;
                         LemonadeSystem.buyStand = false;
                     }
                 }
             }
+        }
+        else
+        {
+            LemonadeSystem.buyStand = false;
         }
     }
 }

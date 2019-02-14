@@ -9,7 +9,7 @@ public class Events : MonoBehaviour
     [SerializeField] private Event[] events;
     [SerializeField] private UIElements uiElements;
     [HideInInspector] public static EventTypes type;
-
+    public static bool DisplayingEvent;
     [Serializable]
     private struct Event
     {
@@ -27,6 +27,7 @@ public class Events : MonoBehaviour
 
     void DisplayEvent(Event e)
     {
+        Events.DisplayingEvent = true;
         uiElements.overlay.SetActive(true);
         uiElements.title.text = e.title;
         uiElements.text.text = e.text;
@@ -35,6 +36,7 @@ public class Events : MonoBehaviour
     }
     public void HideEvent()
     {
+        Events.DisplayingEvent = false;
         uiElements.overlay.SetActive(false);
         Time.timeScale = 1;
     }
