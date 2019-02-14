@@ -8,7 +8,7 @@ public class StandPlace : MonoBehaviour
     public static bool startOfDay = true;
     public GameObject stand;
     public Grid myTile;
-    public float standCost = 100;
+    public static int standCost = 25;
     
     // Start is called before the first frame update
     void Start()
