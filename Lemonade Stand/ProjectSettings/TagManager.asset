@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Customer
   - Stand
+  - UpgradePanel
   layers:
   - Default
   - TransparentFX

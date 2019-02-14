@@ -42,7 +42,7 @@ public class Events : MonoBehaviour
     }
     public void RandomEvent()
     {
-        int index = (int) UnityEngine.Random.Range(0, events.Length - 1);
+        int index = (int) UnityEngine.Random.Range(0, events.Length);
         DisplayEvent(events[index]);
         
     }

@@ -14,6 +14,7 @@ public class LemonadeSystem : MonoBehaviour
     public static bool priceUpgrade;
     public static bool autoUpgrade;
     public static bool buyStand;
+    public GameObject upgradePanel;
 
     // Start is called before the first frame update
     void Start()
@@ -45,5 +46,16 @@ public class LemonadeSystem : MonoBehaviour
     public void BuyStand()
     {
         buyStand = true;
+    }
+    public void ClosePopup()
+    {
+        Time.timeScale = 1;
+        upgradePanel.SetActive(false);
+    }
+
+    public void OpenPopup()
+    {
+        Time.timeScale = 0;
+        upgradePanel.SetActive(true);
     }
 }
