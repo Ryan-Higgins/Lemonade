@@ -2,12 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c28aa1e4-88a7-40f2-b50e-6b076ee1ed67" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Lemonade Stand/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Lemonade Stand/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/AILemonadeStand.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/AILemonadeStand.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/WhiteBox/Person 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/WhiteBox/Person 1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Main.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Person.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Person.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/UI Art/Back_Button.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/UI Art/Back_Button.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,9 +15,10 @@
       <usages-collector id="statistics.lifecycle.project">
         <counts>
           <entry key="project.closed" value="2" />
+          <entry key="project.open.time.42" value="1" />
           <entry key="project.open.time.44" value="1" />
           <entry key="project.open.time.66" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -91,7 +86,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/Person.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
+            <state relative-caret-position="1140">
               <caret line="80" column="10" selection-start-line="80" selection-start-column="10" selection-end-line="80" selection-end-column="10" />
               <folding>
                 <marker date="1550237081876" expanded="false" signature="6:135" ph="..." />
@@ -115,7 +110,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/StandUpgrader.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
+            <state relative-caret-position="795">
               <caret line="53" column="68" selection-start-line="53" selection-start-column="68" selection-end-line="53" selection-end-column="68" />
               <folding>
                 <marker date="1550234337976" expanded="true" signature="2160:2166" ph="{...}" />
@@ -145,6 +140,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SceneLoad.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DrawGizmos.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/StandPlace.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/LemonadeSystem.cs" root0="FORCE_HIGHLIGHTING" />
@@ -193,13 +189,13 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="FileSystemExplorer" />
-      <pane id="UnityExplorer">
-        <option name="show-hidden-items" value="false" />
-      </pane>
       <pane id="SolutionExplorer">
         <option name="show-all-files" value="false" />
       </pane>
+      <pane id="UnityExplorer">
+        <option name="show-hidden-items" value="false" />
+      </pane>
+      <pane id="FileSystemExplorer" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -257,11 +253,12 @@
       <workItem from="1550007849939" duration="704000" />
       <workItem from="1550062219111" duration="8121000" />
       <workItem from="1550236472171" duration="820000" />
+      <workItem from="1550239683157" duration="221000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26179000" />
+    <option name="totallyTimeSpent" value="26613000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -274,8 +271,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2632375" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26701966" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="Image Layers" order="3" />
@@ -374,6 +372,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/StandUpgrader.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="795">
+          <caret line="53" column="68" selection-start-line="53" selection-start-column="68" selection-end-line="53" selection-end-column="68" />
+          <folding>
+            <marker date="1550234337976" expanded="true" signature="2160:2166" ph="{...}" />
+            <marker date="1550234337976" expanded="true" signature="2160:2168" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Agent.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="975">
@@ -386,20 +395,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/StandUpgrader.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="53" column="68" selection-start-line="53" selection-start-column="68" selection-end-line="53" selection-end-column="68" />
-          <folding>
-            <marker date="1550234337976" expanded="true" signature="2160:2166" ph="{...}" />
-            <marker date="1550234337976" expanded="true" signature="2160:2168" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Person.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
+        <state relative-caret-position="1140">
           <caret line="80" column="10" selection-start-line="80" selection-start-column="10" selection-end-line="80" selection-end-column="10" />
           <folding>
             <marker date="1550237081876" expanded="false" signature="6:135" ph="..." />
@@ -415,6 +413,21 @@
             <marker date="1550237081876" expanded="true" signature="2282:2483" ph="{...}" />
             <marker date="1550237081876" expanded="true" signature="2501:2585" ph="/* serveIcon.gameObject.SetActive(true); ... */" />
             <marker date="1550237081876" expanded="true" signature="2645:2792" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/SceneLoad.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="5" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
+          <folding>
+            <marker date="1550240124871" expanded="true" signature="6:113" ph="..." />
+            <marker date="1550240124871" expanded="true" signature="153:517" ph="{...}" />
+            <marker date="1550240124871" expanded="true" signature="265:286" ph="{...}" />
+            <marker date="1550240124871" expanded="true" signature="344:365" ph="{...}" />
+            <marker date="1550240124871" expanded="true" signature="394:451" ph="{...}" />
+            <marker date="1550240124871" expanded="true" signature="475:515" ph="{...}" />
           </folding>
         </state>
       </provider>

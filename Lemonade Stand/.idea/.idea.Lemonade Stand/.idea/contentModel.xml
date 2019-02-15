@@ -24,6 +24,7 @@
           <e p="Path.cs" t="Include" />
           <e p="Person.cs" t="Include" />
           <e p="PersonManager.cs" t="Include" />
+          <e p="SceneLoad.cs" t="Include" />
           <e p="Serving.cs" t="Include" />
           <e p="StandPlace.cs" t="Include" />
           <e p="StandUpgrader.cs" t="Include" />
