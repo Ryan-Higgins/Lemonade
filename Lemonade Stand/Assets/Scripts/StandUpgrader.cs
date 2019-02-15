@@ -3,12 +3,12 @@ using UnityEngine.UI;
 
 public class PriceHolder
 {
-    public static int cost = 10;
+    public static int priceCost = 10;
     public static int timesUpgraded = 1;
-
+    public static int autoCost = 20;
     public static int GetCost()
     {
-        return cost * timesUpgraded;
+        return priceCost * timesUpgraded;
     }
 
 }
@@ -48,10 +48,13 @@ public class StandUpgrader : MonoBehaviour
                     {
                         if (LemonadeSystem.HasMoney(PriceHolder.GetCost()))
                         {
-                            hit.transform.gameObject.GetComponent<StandUpgrader>().upgradeMultiplier += 1;
-                            PriceHolder.timesUpgraded++;
                             LemonadeSystem.priceUpgrade = false;
-                            LemonadeSystem.money -= PriceHolder.GetCost();
+                            hit.transform.gameObject.GetComponent<StandUpgrader>().upgradeMultiplier += 1;
+                            
+                            //LemonadeSystem.money -= PriceHolder.priceCost;
+
+                            PriceHolder.timesUpgraded++;
+                            PriceHolder.priceCost = PriceHolder.GetCost();
                         }
                     }
 
@@ -61,7 +64,8 @@ public class StandUpgrader : MonoBehaviour
                         {
                             hit.transform.gameObject.GetComponent<StandUpgrader>().automatic = true;
                             LemonadeSystem.autoUpgrade = false;
-                            LemonadeSystem.money -= 20;
+                            LemonadeSystem.money -= autoCost;
+                            autoCost *= (int)1.5f;
                         }
                     }
                 }

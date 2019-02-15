@@ -20,7 +20,7 @@ public class Serving : MonoBehaviour
             {
                 if (hit.transform.gameObject.CompareTag("Customer"))
                 {
-                    if (!hit.transform.gameObject.GetComponent<Person>().beenServed)
+                    if (!hit.transform.gameObject.GetComponent<Person>().beenServed && hit.transform.gameObject.GetComponent<Person>().atStand)
                     {
                         //hit.transform.gameObject.GetComponent<Person>().serveIcon.gameObject.SetActive(false);
 

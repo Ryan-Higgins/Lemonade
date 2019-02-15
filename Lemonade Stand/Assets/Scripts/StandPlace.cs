@@ -48,6 +48,7 @@ public class StandPlace : MonoBehaviour
                         LemonadeSystem.money -= standCost;
                         LemonadeSystem.buyStand = false;
                     }
+                    standCost *= (int)1.5;
                 }
             }
         }
