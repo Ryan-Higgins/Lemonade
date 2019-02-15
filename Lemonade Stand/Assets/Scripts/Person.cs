@@ -15,6 +15,7 @@ public class Person : MonoBehaviour
     public bool beenServed;
     public int thisMod;
     public bool AlwaysShowIcon = false;
+    public GameObject served;
     
     // Start is called before the first frame update
     void Start()
@@ -58,27 +59,32 @@ public class Person : MonoBehaviour
     }
     public void NotServed()
     {
-        serveIcon.gameObject.GetComponent<SpriteRenderer>().color = unServedColor;
+        //serveIcon.gameObject.GetComponent<SpriteRenderer>().color = unServedColor;
         serveIcon.gameObject.SetActive(true);
     }
     public void Served(bool byPlayer = false)
     {
-        serveIcon.gameObject.GetComponent<SpriteRenderer>().color = enemyColor;
+      //serveIcon.gameObject.GetComponent<SpriteRenderer>().color = enemyColor;
+        //served.gameObject.SetActive(true);
         if (!byPlayer)
         {
             serveIcon.gameObject.GetComponent<SpriteRenderer>().color = enemyColor;
         }
         else
         {
-            serveIcon.gameObject.GetComponent<SpriteRenderer>().color = ogColor;
+            //serveIcon.gameObject.GetComponent<SpriteRenderer>().color = ogColor;
+            serveIcon.gameObject.SetActive(false);
+            served.gameObject.SetActive(true);
         }
         
-        serveIcon.gameObject.SetActive(true);
+        //serveIcon.gameObject.SetActive(true);
+        //served.gameObject.SetActive(true);
         beenServed = true;
     }
     public void HideIcon()
     {
         if (!AlwaysShowIcon || !beenServed)
         serveIcon.gameObject.SetActive(false);
+        served.gameObject.SetActive(false);
     }
 }

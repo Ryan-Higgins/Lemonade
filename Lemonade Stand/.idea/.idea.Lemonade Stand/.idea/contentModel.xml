@@ -11,10 +11,13 @@
         <e p="Scripts" t="Include">
           <e p="Agent.cs" t="Include" />
           <e p="AgentSpawner.cs" t="Include" />
+          <e p="AILemonadeStand.cs" t="Include" />
+          <e p="CameraController.cs" t="Include" />
           <e p="DrawGizmos.cs" t="Include" />
           <e p="Editor" t="Include">
             <e p="PrefabBrush.cs" t="Include" />
           </e>
+          <e p="Events.cs" t="Include" />
           <e p="LemonadeSystem.cs" t="Include" />
           <e p="NewsEvents.cs" t="Include" />
           <e p="Node.cs" t="Include" />
