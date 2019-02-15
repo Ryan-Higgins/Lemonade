@@ -51,11 +51,20 @@ MonoBehaviour:
     title: Lemon Thieves
     text: There is a lemon heist at the bank
   - eventType: 3
-    title: Lemonnade
-    text: Holy shit a lemon tornado is destroying the cinema
+    title: Lemon-nado
+    text: Oh shite a lemon tornado is destroying the cinema
   - eventType: 2
-    title: War Of The Worlds
+    title: War Of The Lemons
     text: The third lemon themed world war has begun in the cafe
+  - eventType: 4
+    title: The Lemons Revolt
+    text: Robotic lemons are striking at the office
+  - eventType: 6
+    title: Lemon Addiction
+    text: Oh deary the kidos demand lemons at the school
+  - eventType: 5
+    title: Self Aware Lemons
+    text: Some millennial has mistakenly created sentient lemons at the university
   uiElements:
     overlay: {fileID: 0}
     title: {fileID: 0}

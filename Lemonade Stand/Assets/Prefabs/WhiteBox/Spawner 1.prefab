@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 55998034}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3, y: -6, z: 1}
+  m_LocalPosition: {x: -3, y: -5, z: 1}
   m_LocalScale: {x: 3, y: 6, z: 1}
   m_Children: []
   m_Father: {fileID: 4924148697019049802}
@@ -104,7 +104,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 186032484}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5, y: -6, z: 1}
+  m_LocalPosition: {x: 5, y: -5, z: 1}
   m_LocalScale: {x: 3, y: 6, z: 1}
   m_Children: []
   m_Father: {fileID: 4924148697019049802}
@@ -183,7 +183,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 400485482}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13, y: -6, z: 1}
+  m_LocalPosition: {x: 13, y: -5, z: 1}
   m_LocalScale: {x: 3, y: 6, z: 1}
   m_Children: []
   m_Father: {fileID: 4924148697019049802}
@@ -341,7 +341,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 993921608}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13, y: 0, z: 1}
+  m_LocalPosition: {x: 13, y: 1, z: 1}
   m_LocalScale: {x: 3, y: 6, z: 1}
   m_Children: []
   m_Father: {fileID: 4924148697019049802}
@@ -475,16 +475,16 @@ MonoBehaviour:
   - trans: {fileID: 55998035}
     weight: 5
     weatherType: 1
-    eventType: 2
+    eventType: 6
   - trans: {fileID: 993921609}
     weight: 5
     weatherType: 1
-    eventType: 2
+    eventType: 5
   - trans: {fileID: 186032485}
     weight: 5
     weatherType: 1
-    eventType: 2
-  drawGizmos: 1
+    eventType: 4
+  drawGizmos: 0
   numToSpawn: 50
   moveSpeed:
     minSpeed: 2
@@ -752,7 +752,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4924148697677923932}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5, y: 0, z: 1}
+  m_LocalPosition: {x: 5, y: 1, z: 1}
   m_LocalScale: {x: 3, y: 6, z: 1}
   m_Children: []
   m_Father: {fileID: 4924148697019049802}

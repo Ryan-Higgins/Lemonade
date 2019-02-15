@@ -40,6 +40,23 @@ public class LemonadeSystem : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    public static bool HasMoney(float cost)
+    {
+        if (cost <= money)
+        {
+            money -= cost;
+            Debug.Log("Price upgrade purchased");
+            return true;
+        }
+        else
+        {
+            Debug.Log("NO money for upgrade");
+            priceUpgrade = false;
+            return false;
+
+        }
+    }
+
     public void AutoUpgrade()
     {
         autoUpgrade = true;
@@ -60,7 +77,7 @@ public class LemonadeSystem : MonoBehaviour
 
     public void OpenPopup()
     {
-        upgradePrice.text = "€" + StandUpgrader.cost.ToString();
+        upgradePrice.text = "€" + PriceHolder.GetCost().ToString();
         purchasePrice.text = "€" + StandPlace.standCost.ToString();
         autoPrice.text = "€" + StandUpgrader.autoCost.ToString();
         Time.timeScale = 0;

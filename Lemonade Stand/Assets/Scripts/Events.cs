@@ -47,4 +47,4 @@ public class Events : MonoBehaviour
         
     }
 }
-public enum EventTypes { AttackOfTheLimes, LemonThieves, WarOfTheWorlds, Lemonnado, }
+public enum EventTypes { AttackOfTheLimes, LemonThieves, WarOfTheWorlds, Lemonnado, TheLemonsRevolt, SelfAwareLemons, LemonAddiction}

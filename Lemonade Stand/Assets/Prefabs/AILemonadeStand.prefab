@@ -28,12 +28,12 @@ PrefabInstance:
     - target: {fileID: 1389621185423008261, guid: cf76cb790eb26c94ab2ec0fc07ee2bec,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1389621185423008261, guid: cf76cb790eb26c94ab2ec0fc07ee2bec,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -3.93
       objectReference: {fileID: 0}
     - target: {fileID: 1389621185423008261, guid: cf76cb790eb26c94ab2ec0fc07ee2bec,
         type: 3}
@@ -80,16 +80,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 100046409, guid: cf76cb790eb26c94ab2ec0fc07ee2bec, type: 3}
-      propertyPath: automatic
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 1389621185423008258, guid: cf76cb790eb26c94ab2ec0fc07ee2bec,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1d5f4767eb11c484e80f18cc25425a15,
+        type: 3}
     - target: {fileID: 100046409, guid: cf76cb790eb26c94ab2ec0fc07ee2bec, type: 3}
       propertyPath: shownMoney
       value: 
       objectReference: {fileID: 2055376762600109128}
-    m_RemovedComponents:
-    - {fileID: 1389621185423008256, guid: cf76cb790eb26c94ab2ec0fc07ee2bec, type: 3}
+    - target: {fileID: 100046409, guid: cf76cb790eb26c94ab2ec0fc07ee2bec, type: 3}
+      propertyPath: automatic
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf76cb790eb26c94ab2ec0fc07ee2bec, type: 3}
 --- !u!1 &1139066962242592646 stripped
 GameObject:

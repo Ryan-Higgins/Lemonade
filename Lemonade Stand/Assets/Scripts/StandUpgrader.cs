@@ -1,11 +1,22 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
+public class PriceHolder
+{
+    public static int cost = 10;
+    public static int timesUpgraded = 1;
+
+    public static int GetCost()
+    {
+        return cost * timesUpgraded;
+    }
+
+}
 public class StandUpgrader : MonoBehaviour
 {
     public int upgradeMultiplier = 1;
-    public static int cost;
-    public static int timesUpgraded;
+    //public static int cost = 10;
+    //public static int timesUpgraded  = 1;
     public static int autoCost = 20;
     public Text shownMoney;
 
@@ -22,7 +33,7 @@ public class StandUpgrader : MonoBehaviour
     {
         //print(automatic);
         shownMoney.text = "$" + ((1 * LemonadeSystem.weatherMultiplier) * upgradeMultiplier).ToString();
-        cost = 10 * upgradeMultiplier;
+        //cost *= timesUpgraded;
         //print(upgradeMultiplier);
         RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
 
@@ -35,12 +46,12 @@ public class StandUpgrader : MonoBehaviour
                 {
                     if (LemonadeSystem.priceUpgrade)
                     {
-                        if (LemonadeSystem.money >= cost)
+                        if (LemonadeSystem.HasMoney(PriceHolder.GetCost()))
                         {
                             hit.transform.gameObject.GetComponent<StandUpgrader>().upgradeMultiplier += 1;
-                            timesUpgraded++;
+                            PriceHolder.timesUpgraded++;
                             LemonadeSystem.priceUpgrade = false;
-                            LemonadeSystem.money -= cost;
+                            LemonadeSystem.money -= PriceHolder.GetCost();
                         }
                     }
 

@@ -119,7 +119,7 @@ public class Agent : MonoBehaviour
 
         if (index == waypoints.Count)
         {
-            Debug.Log("Destination reached");
+            //Debug.Log("Destination reached");
             CanMove = false;
             return;
         }
